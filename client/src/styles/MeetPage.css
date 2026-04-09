@@ -1,0 +1,376 @@
+/* Meet Room Aesthetic Overhaul */
+
+.meetPage {
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    background: var(--bg-gradient);
+    position: relative;
+}
+
+.meetPage::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at center, rgba(59, 130, 246, 0.08), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.meetPage-header { 
+    position: fixed;
+    padding: 0 3%;
+    display: flex;
+    align-items: center;
+    top: 0;
+    height: 8vh;
+    width: 100%;
+    z-index: 10;
+    background: rgba(7, 9, 19, 0.6);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--glass-border);
+    justify-content: space-between;
+}
+
+.meetPage-header h3 {
+    color: var(--text-main);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.meetPage-header h3 span {
+    color: var(--primary-accent);
+    font-weight: 600;
+}
+
+.meetPage-header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 400;
+    margin: 0;
+    background: rgba(255,255,255,0.05);
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+}
+
+.meetPage-header p #meet-id-copy {
+    color: var(--text-main);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.meetPage-header p #meet-id-copy:hover {
+    color: var(--primary-accent);
+}
+
+.meetPage-videoPlayer-container {
+    position: absolute;
+    top: 0;
+    min-height: 100vh;
+    width: 100%;
+    padding-top: 10vh;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.meetPage-controls-part {
+    position: fixed;
+    bottom: 4vh;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    pointer-events: none; /* Allows clicking through empty space */
+}
+
+/* Video player Grid */
+.videoPlayer-page {
+    width: 90%;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-gap: 24px;
+    align-content: center;
+    justify-content: center;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.videoPlayer-page::-webkit-scrollbar {
+    width: 6px;
+}  
+.videoPlayer-page::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+}
+
+.videoplayer-video {
+    height: 40vh;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    background: rgba(0,0,0,0.4);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.videoplayer-video:hover {
+    transform: translateY(-5px);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.videoplayer-video #video {
+    flex-grow: 1;
+    width: 100%;
+    object-fit: cover;
+}
+
+.videoplayer-video p {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: white;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    padding: 6px 14px;
+    border-radius: 12px;
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Controllers Pill */
+.controls-page {
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.controllers-video-part {
+    display: flex;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(16px);
+    padding: 12px 24px;
+    border-radius: 40px;
+    border: 1px solid var(--glass-border);
+    gap: 16px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.05);
+    transition: all 0.3s ease;
+}
+
+.controllers-video-part:hover {
+    background: rgba(15, 23, 42, 0.85);
+    transform: translateY(-3px);
+}
+
+.controllers-video-part button {
+    border-radius: 50% !important;
+    width: 50px;
+    height: 50px;
+    min-width: 50px !important;
+    box-shadow: none !important;
+    transition: all 0.2s ease !important;
+}
+
+.controllers-video-part button:hover {
+    transform: scale(1.1);
+}
+
+.controllers-chat-participants {
+    display: flex;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(16px);
+    padding: 12px 20px;
+    border-radius: 40px;
+    border: 1px solid var(--glass-border);
+    gap: 10px;
+}
+
+.controllers-chat-participants button {
+    background: transparent;
+    color: var(--text-muted);
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.controllers-chat-participants button:hover {
+    color: var(--text-main);
+    background: rgba(255,255,255,0.1);
+}
+
+
+/* Side Panels (Participants / Chat) */
+.participants-page, .chats-page {
+    height: 75vh;
+    width: 350px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    position: absolute;
+    top: 10vh;
+    z-index: 100;
+    padding: 24px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+    color: var(--text-main);
+    pointer-events: auto;
+}
+
+/* Positioning */
+.participants-page { right: 20px; }
+.chats-page { right: 20px; }
+
+.participants-page h3, .chats-page h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    color: var(--text-main);
+}
+
+#h3-hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, var(--glass-border), transparent);
+    margin-bottom: 20px;
+}
+
+/* Participants List */
+.participants-container {
+    height: calc(100% - 50px);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.participants-container::-webkit-scrollbar { width: 4px; }
+.participants-container::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+
+.participant {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    transition: background 0.2s;
+}
+.participant:hover { background: rgba(255,255,255,0.08); }
+
+.participant h4 {
+    font-size: 1rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+.participant-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--accent-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+}
+.participant-logo p { margin: 0; }
+
+/* Chats Section */
+.chat-container { height: calc(100% - 50px); display: flex; flex-direction: column; }
+.chat-messages-box {
+    flex-grow: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 15px;
+}
+.chat-messages-box::-webkit-scrollbar { width: 4px; }
+.chat-messages-box::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); }
+
+.message-body {
+    display: flex;
+    flex-direction: column;
+    background: rgba(59, 130, 246, 0.1);
+    padding: 10px 15px;
+    border-radius: 12px;
+    border-top-left-radius: 2px;
+    align-self: flex-start;
+    max-width: 90%;
+}
+
+.message-body span {
+    font-size: 0.85rem;
+    color: var(--primary-accent);
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.message-body p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+.send-messages-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0,0,0,0.3);
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+}
+
+.send-messages-box #fileInput { display: none; }
+.send-messages-box label {
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.send-messages-box label:hover { color: var(--primary-accent); }
+
+.send-messages-box input {
+    flex-grow: 1;
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    outline: none;
+    font-size: 0.95rem;
+}
+.send-messages-box input::placeholder { color: var(--text-muted); }
+
+.send-messages-box button {
+    background: var(--primary-accent);
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s;
+}
+.send-messages-box button:hover { transform: scale(1.1); }

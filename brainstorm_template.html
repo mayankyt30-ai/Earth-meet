@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Brainstorm & Idea Prioritization – Smart Meet</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Times New Roman', Times, serif; font-size: 11pt; background: #fff; color: #000; }
+
+  .page { width: 210mm; min-height: 297mm; margin: 0 auto; padding: 20mm 20mm 15mm 20mm; }
+
+  h1.doc-title { text-align: center; font-size: 13pt; font-weight: bold; margin-bottom: 2pt; }
+  h2.doc-subtitle { text-align: center; font-size: 12pt; font-weight: bold; margin-bottom: 14pt; }
+
+  /* Meta table */
+  .meta-table { width: 100%; border-collapse: collapse; margin-bottom: 16pt; }
+  .meta-table td { border: 1px solid #000; padding: 3pt 6pt; font-size: 10.5pt; }
+  .meta-table td:first-child { width: 34%; background: #f2f2f2; font-weight: bold; }
+
+  /* Body text */
+  p { font-size: 10.5pt; margin-bottom: 8pt; text-align: justify; line-height: 1.5; }
+  p.ref { font-size: 9.5pt; color: #1155cc; margin-bottom: 10pt; }
+  a { color: #1155cc; }
+
+  /* Step headings */
+  .step-heading { font-size: 11pt; font-weight: bold; margin: 14pt 0 8pt 0; }
+
+  /* Problem statement box */
+  .ps-box { border: 1px solid #000; padding: 10pt 14pt; margin-bottom: 14pt; background: #fafafa; }
+  .ps-box .ps-label { font-weight: bold; font-size: 10.5pt; margin-bottom: 6pt; }
+  .ps-box p { margin-bottom: 0; }
+
+  /* Tech stack */
+  .tech-table { width: 100%; border-collapse: collapse; margin-bottom: 14pt; font-size: 10pt; }
+  .tech-table th { background: #d9d9d9; border: 1px solid #000; padding: 4pt 8pt; text-align: left; font-weight: bold; }
+  .tech-table td { border: 1px solid #000; padding: 4pt 8pt; vertical-align: top; }
+
+  /* Sticky-note grid for ideas */
+  .sticky-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8pt; margin-bottom: 14pt; }
+  .sticky { background: #FFE066; border: 1px solid #ccc; border-radius: 3pt; padding: 6pt 8pt; font-size: 9.5pt; min-height: 54pt; }
+  .sticky.blue { background: #C9E4FF; }
+  .sticky.green { background: #C9F7C9; }
+  .sticky.pink { background: #FFCCD5; }
+  .sticky .sticky-cat { font-weight: bold; font-size: 8.5pt; margin-bottom: 3pt; color: #555; text-transform: uppercase; letter-spacing: 0.3pt; }
+
+  /* Grouping table */
+  .group-table { width: 100%; border-collapse: collapse; margin-bottom: 14pt; font-size: 10pt; }
+  .group-table th { background: #595959; color: #fff; border: 1px solid #000; padding: 5pt 8pt; text-align: center; }
+  .group-table td { border: 1px solid #000; padding: 5pt 8pt; vertical-align: top; }
+  .group-table tr:nth-child(even) td { background: #f5f5f5; }
+
+  /* Priority matrix */
+  .matrix-wrap { display: flex; gap: 20pt; margin-bottom: 14pt; align-items: flex-start; }
+  .matrix-canvas { position: relative; width: 240pt; height: 220pt; border-left: 2px solid #000; border-bottom: 2px solid #000; flex-shrink: 0; }
+  .axis-label-y { position: absolute; left: -38pt; top: 50%; transform: translateY(-50%) rotate(-90deg); font-size: 9pt; font-weight: bold; white-space: nowrap; }
+  .axis-label-x { position: absolute; bottom: -18pt; left: 50%; transform: translateX(-50%); font-size: 9pt; font-weight: bold; }
+  .quad-label { position: absolute; font-size: 8pt; color: #aaa; }
+  .dot { position: absolute; width: 14pt; height: 14pt; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 7pt; font-weight: bold; color: #fff; transform: translate(-50%, 50%); }
+  .matrix-legend { font-size: 9pt; }
+  .matrix-legend .leg-item { display: flex; align-items: center; gap: 6pt; margin-bottom: 5pt; }
+  .matrix-legend .leg-dot { width: 12pt; height: 12pt; border-radius: 50%; flex-shrink: 0; }
+
+  /* Priority ranking table */
+  .rank-table { width: 100%; border-collapse: collapse; font-size: 10pt; }
+  .rank-table th { background: #595959; color: #fff; border: 1px solid #000; padding: 5pt 8pt; }
+  .rank-table td { border: 1px solid #000; padding: 5pt 8pt; text-align: center; }
+  .rank-table tr:nth-child(even) td { background: #f5f5f5; }
+
+  /* Page break */
+  .page-break { page-break-before: always; padding-top: 20mm; }
+
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { padding: 12mm 18mm; }
+    .no-print { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="no-print" style="background:#1a1a2e;color:#fff;text-align:center;padding:10px;font-family:sans-serif;font-size:13px;">
+  📄 Press <strong>Ctrl + P</strong> to print / save as PDF &nbsp;|&nbsp; Content filled for <strong>Smart Meet</strong> video conferencing project
+</div>
+
+<!-- ===== PAGE 1 ===== -->
+<div class="page">
+
+  <h1 class="doc-title">Ideation Phase</h1>
+  <h2 class="doc-subtitle">Brainstorm &amp; Idea Prioritization Template</h2>
+
+  <table class="meta-table">
+    <tr><td>Date</td><td>08 April 2026</td></tr>
+    <tr><td>Team ID</td><td></td></tr>
+    <tr><td>Project Name</td><td>Smart Meet – Free Video Conferencing Application</td></tr>
+    <tr><td>Maximum Marks</td><td>4 Marks</td></tr>
+  </table>
+
+  <p><strong>Brainstorm &amp; Idea Prioritization Template:</strong></p>
+
+  <p>Brainstorming provides a free and open environment that encourages everyone within a team to participate in the creative thinking process that leads to problem solving. Prioritizing volume over value, out of the box ideas are welcome and built upon; once all participants are encouraged to collaborate, helping each other develop a rich amount of creative solutions.</p>
+
+  <p>Use this template in your own brainstorming sessions so your team can unleash their imagination and start shaping concepts even if you're not sitting in the same room.</p>
+
+  <p class="ref">Reference: <a href="https://www.mural.co/templates/brainstorm-and-idea-prioritization">https://www.mural.co/templates/brainstorm-and-idea-prioritization</a></p>
+
+  <!-- STEP 1 -->
+  <div class="step-heading">Step-1: Team Gathering, Collaboration and Select the Problem Statement</div>
+
+  <div class="ps-box">
+    <div class="ps-label">Problem Statement:</div>
+    <p>
+      How can we build a <strong>free, accessible, and feature-rich video conferencing platform</strong> — "Smart Meet" —
+      that enables individuals and teams to connect remotely through real-time audio/video communication, screen
+      sharing, in-meeting chat, session recording, and flexible meeting scheduling, without requiring expensive
+      subscriptions or third-party dependency for core functionality?
+    </p>
+  </div>
+
+  <p><strong>Context &amp; Background:</strong></p>
+  <p>
+    With the steady rise of remote work, online education, and global collaboration, the demand for reliable video
+    conferencing tools has grown significantly. Dominant platforms (Zoom, Google Meet, Teams) impose feature
+    restrictions on free tiers and raise privacy concerns. There is a clear opportunity to build a lightweight,
+    open-source-friendly application that provides essential conferencing features at zero cost to the end user,
+    using modern web technologies such as React, Node.js, Socket.io, and the Agora RTC SDK.
+  </p>
+
+  <table class="tech-table">
+    <tr>
+      <th>Layer</th>
+      <th>Technology</th>
+      <th>Purpose</th>
+    </tr>
+    <tr><td>Frontend</td><td>React.js, Framer Motion, Bootstrap, MUI</td><td>UI rendering, animations, responsive layout</td></tr>
+    <tr><td>Backend</td><td>Node.js, Express.js</td><td>REST API, auth routes, Agora token generation</td></tr>
+    <tr><td>Real-time</td><td>Socket.io</td><td>Room events, signaling, meet data sync</td></tr>
+    <tr><td>Media</td><td>Agora RTC/RTM SDK</td><td>Audio, video, screen sharing streams</td></tr>
+    <tr><td>Database</td><td>MongoDB (Mongoose)</td><td>User accounts &amp; meeting records</td></tr>
+    <tr><td>Auth</td><td>JWT + bcrypt</td><td>Secure user authentication</td></tr>
+  </table>
+
+</div>
+
+<!-- ===== PAGE 2 ===== -->
+<div class="page page-break">
+
+  <!-- STEP 2 -->
+  <div class="step-heading">Step-2: Brainstorm, Idea Listing and Grouping</div>
+
+  <p><strong>2a. Individual Idea Sticky Notes (Raw Brainstorm)</strong></p>
+
+  <div class="sticky-grid">
+    <!-- Yellow: Core Features -->
+    <div class="sticky"><div class="sticky-cat">Core</div>Real-time audio &amp; video calls using Agora RTC SDK</div>
+    <div class="sticky"><div class="sticky-cat">Core</div>Unique room codes for instant meeting access</div>
+    <div class="sticky"><div class="sticky-cat">Core</div>Multi-participant group video conference</div>
+    <div class="sticky"><div class="sticky-cat">Core</div>HD screen sharing with participant toggle</div>
+
+    <!-- Blue: Meetings -->
+    <div class="sticky blue"><div class="sticky-cat">Meetings</div>Create instant meet with one click</div>
+    <div class="sticky blue"><div class="sticky-cat">Meetings</div>Schedule meets by date &amp; time for later</div>
+    <div class="sticky blue"><div class="sticky-cat">Meetings</div>Meet name and type (instant / scheduled)</div>
+    <div class="sticky blue"><div class="sticky-cat">Meetings</div>Dashboard showing all user's meets</div>
+
+    <!-- Green: In-Meet Tools -->
+    <div class="sticky green"><div class="sticky-cat">In-Meet</div>In-meet live chat panel for text messaging</div>
+    <div class="sticky green"><div class="sticky-cat">In-Meet</div>Mute / unmute microphone control</div>
+    <div class="sticky green"><div class="sticky-cat">In-Meet</div>Camera on/off toggle during meeting</div>
+    <div class="sticky green"><div class="sticky-cat">In-Meet</div>Session recording &amp; download (RecordRTC)</div>
+
+    <!-- Pink: User & UX -->
+    <div class="sticky pink"><div class="sticky-cat">UX / User</div>User registration and JWT-based login</div>
+    <div class="sticky pink"><div class="sticky-cat">UX / User</div>User profile page with username &amp; details</div>
+    <div class="sticky pink"><div class="sticky-cat">UX / User</div>Dark-mode premium UI with glassmorphism</div>
+    <div class="sticky pink"><div class="sticky-cat">UX / User</div>Responsive layout for different screen sizes</div>
+  </div>
+
+  <p><strong>2b. Idea Grouping &amp; Categorization</strong></p>
+
+  <table class="group-table">
+    <tr>
+      <th>Category</th>
+      <th>Ideas / Features in this Group</th>
+      <th>Rationale</th>
+    </tr>
+    <tr>
+      <td><strong>Core Communication</strong></td>
+      <td>Real-time audio/video, multi-participant calls, Agora RTC integration, unique room codes</td>
+      <td>The primary value proposition — without these, the product has no purpose</td>
+    </tr>
+    <tr>
+      <td><strong>Meeting Management</strong></td>
+      <td>Instant meet creation, scheduled meets, meet name &amp; type selection, my-meets dashboard</td>
+      <td>Organizes and controls how meetings are initiated and tracked</td>
+    </tr>
+    <tr>
+      <td><strong>In-Meet Tools</strong></td>
+      <td>Live chat, mic mute, camera toggle, screen share, session recording &amp; download</td>
+      <td>Enhances meeting productivity and collaboration beyond basic video calls</td>
+    </tr>
+    <tr>
+      <td><strong>User &amp; Auth System</strong></td>
+      <td>Registration, JWT login, user profile, protected routes</td>
+      <td>Ensures secure, personalized access to the platform</td>
+    </tr>
+    <tr>
+      <td><strong>UI / UX Design</strong></td>
+      <td>Dark mode, glassmorphism, Framer Motion animations, responsive layout</td>
+      <td>Makes the app visually engaging and accessible on various devices</td>
+    </tr>
+  </table>
+
+</div>
+
+<!-- ===== PAGE 3 ===== -->
+<div class="page page-break">
+
+  <!-- STEP 3 -->
+  <div class="step-heading">Step-3: Idea Prioritization</div>
+
+  <p>Ideas are plotted on a 2×2 Impact vs. Effort matrix to determine implementation priority.</p>
+  <p>
+    <strong>High Impact + Low Effort</strong> → Implement first (Quick Wins).<br/>
+    <strong>High Impact + High Effort</strong> → Plan carefully (Major Projects).<br/>
+    <strong>Low Impact + Low Effort</strong> → Fill-in tasks (Nice to Have).<br/>
+    <strong>Low Impact + High Effort</strong> → Reconsider or deprioritize.
+  </p>
+
+  <div class="matrix-wrap">
+    <!-- Matrix Canvas -->
+    <div class="matrix-canvas">
+      <div class="axis-label-y">IMPACT →</div>
+      <div class="axis-label-x">EFFORT →</div>
+      <!-- Quadrant labels -->
+      <div class="quad-label" style="top:6pt;left:6pt;">HIGH IMPACT / LOW EFFORT</div>
+      <div class="quad-label" style="top:6pt;right:6pt;text-align:right;">HIGH IMPACT / HIGH EFFORT</div>
+      <div class="quad-label" style="bottom:24pt;left:6pt;">LOW IMPACT / LOW EFFORT</div>
+      <div class="quad-label" style="bottom:24pt;right:6pt;text-align:right;">LOW IMPACT / HIGH EFFORT</div>
+      <!-- Divider lines -->
+      <div style="position:absolute;left:50%;top:0;bottom:0;border-left:1px dashed #bbb;"></div>
+      <div style="position:absolute;top:50%;left:0;right:0;border-top:1px dashed #bbb;"></div>
+
+      <!-- Dots: x% from left (effort), y% from bottom (impact) -->
+      <!-- A: Real-time Audio/Video → High Impact, Medium Effort -->
+      <div class="dot" style="background:#e74c3c;left:38%;bottom:78%;" title="A">A</div>
+      <!-- B: Unique Room Codes → High Impact, Low Effort -->
+      <div class="dot" style="background:#e74c3c;left:18%;bottom:82%;" title="B">B</div>
+      <!-- C: Screen Sharing → High Impact, Medium-High Effort -->
+      <div class="dot" style="background:#e67e22;left:60%;bottom:72%;" title="C">C</div>
+      <!-- D: In-Meet Chat → High Impact, Low-Med Effort -->
+      <div class="dot" style="background:#27ae60;left:28%;bottom:70%;" title="D">D</div>
+      <!-- E: Scheduled Meets → Medium Impact, Medium Effort -->
+      <div class="dot" style="background:#2980b9;left:52%;bottom:55%;" title="E">E</div>
+      <!-- F: Session Recording → Medium Impact, High Effort -->
+      <div class="dot" style="background:#8e44ad;left:72%;bottom:50%;" title="F">F</div>
+      <!-- G: User Auth → High Impact, Low Effort -->
+      <div class="dot" style="background:#e74c3c;left:22%;bottom:88%;" title="G">G</div>
+      <!-- H: Dark Mode UI → Medium Impact, Low Effort -->
+      <div class="dot" style="background:#16a085;left:25%;bottom:42%;" title="H">H</div>
+    </div>
+
+    <!-- Legend -->
+    <div class="matrix-legend">
+      <strong>Legend</strong>
+      <br/><br/>
+      <div class="leg-item"><div class="leg-dot" style="background:#e74c3c;"></div><strong>A</strong> – Real-time Audio / Video (Core)</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#e74c3c;"></div><strong>B</strong> – Unique Room Code System</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#e67e22;"></div><strong>C</strong> – Screen Sharing</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#27ae60;"></div><strong>D</strong> – In-Meet Live Chat</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#2980b9;"></div><strong>E</strong> – Scheduled Meetings</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#8e44ad;"></div><strong>F</strong> – Session Recording &amp; Download</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#e74c3c;"></div><strong>G</strong> – User Auth (Register / Login)</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#16a085;"></div><strong>H</strong> – Dark Mode Premium UI</div>
+    </div>
+  </div>
+
+  <p><strong>Priority Ranking Table:</strong></p>
+
+  <table class="rank-table">
+    <tr>
+      <th>Rank</th>
+      <th>Feature / Idea</th>
+      <th>Impact<br/>(H/M/L)</th>
+      <th>Effort<br/>(H/M/L)</th>
+      <th>Priority</th>
+      <th>Status in Smart Meet</th>
+    </tr>
+    <tr><td>1</td><td>User Authentication (Register / Login)</td><td>High</td><td>Low</td><td>🔥 Quick Win</td><td>✅ Implemented</td></tr>
+    <tr><td>2</td><td>Unique Room Code & Join System</td><td>High</td><td>Low</td><td>🔥 Quick Win</td><td>✅ Implemented</td></tr>
+    <tr><td>3</td><td>Real-time Audio / Video Calls (Agora RTC)</td><td>High</td><td>Medium</td><td>⭐ Must Have</td><td>✅ Implemented</td></tr>
+    <tr><td>4</td><td>In-Meet Live Chat Panel</td><td>High</td><td>Low</td><td>🔥 Quick Win</td><td>✅ Implemented</td></tr>
+    <tr><td>5</td><td>Mic Mute / Camera Toggle Controls</td><td>High</td><td>Low</td><td>🔥 Quick Win</td><td>✅ Implemented</td></tr>
+    <tr><td>6</td><td>Screen Sharing</td><td>High</td><td>Medium</td><td>⭐ Must Have</td><td>✅ Implemented</td></tr>
+    <tr><td>7</td><td>Instant &amp; Scheduled Meet Creation</td><td>Medium</td><td>Medium</td><td>📌 Plan</td><td>✅ Implemented</td></tr>
+    <tr><td>8</td><td>Session Recording &amp; Download</td><td>Medium</td><td>High</td><td>📌 Plan</td><td>✅ Implemented</td></tr>
+    <tr><td>9</td><td>User Profile Management</td><td>Medium</td><td>Low</td><td>🟢 Nice to Have</td><td>✅ Implemented</td></tr>
+    <tr><td>10</td><td>Dark Mode / Premium Animated UI</td><td>Medium</td><td>Low</td><td>🟢 Nice to Have</td><td>✅ Implemented</td></tr>
+  </table>
+
+  <br/>
+  <p>
+    <strong>Conclusion:</strong> The Smart Meet application successfully implements all high-priority features identified
+    in the brainstorming and prioritization exercise. Core communication features (audio/video, room codes, chat,
+    controls) were delivered first as quick wins. Scheduling and recording features — identified as higher-effort —
+    were tackled in subsequent development cycles, resulting in a fully functional, free video conferencing platform
+    built with the React + Node.js + Socket.io + Agora technology stack.
+  </p>
+
+</div>
+
+</body>
+</html>
