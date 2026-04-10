@@ -44,10 +44,6 @@
   },
   "browserslist": {
     "production": [
-      /* ============================================
-   EARTH MEET - Global Design System
-   Premium Dark Theme with Glassmorphism
-   ============================================ */
       ">0.2%",
       "not dead",
       "not op_mini all"
