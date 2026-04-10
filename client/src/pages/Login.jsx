@@ -24,9 +24,9 @@ const Login = () => {
   return (
     <div className='formContainer'>
 
-        <div className="smart-header">
-            <div className="smart-logo">
-                <h2 ><Link id='smart-logo-h2' to={'/'}>Smart Meet</Link></h2>
+        <div className="earth-header">
+            <div className="earth-logo">
+                <h2 ><Link id='earth-logo-h2' to={'/'}>Earth Meet</Link></h2>
             </div>
         </div>
 

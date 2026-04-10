@@ -44,7 +44,7 @@ const userId = localStorage.getItem("userId") || '';
 
         <div className="profile-header"> 
                 <div className="profile-logo">
-                  <h2 onClick={() =>{navigate('/')}} >Smart Meet</h2>
+                  <h2 onClick={() =>{navigate('/')}} >Earth Meet</h2>
                 </div>
                 <Dropdown>
                   <Dropdown.Toggle  id="dropdown-basic">

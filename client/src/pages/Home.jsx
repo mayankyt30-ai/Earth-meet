@@ -146,7 +146,7 @@ const userName = localStorage.getItem("userName") || '';
         <div className="homePage-hero">
           <div className="home-header">
               <div className="home-logo">
-                <h2 >Smart Meet</h2>
+                <h2 >Earth Meet</h2>
               </div>
 
           {!userName || userName === 'null' ? 

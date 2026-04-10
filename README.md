@@ -1,6 +1,6 @@
-# 🚀 Smart Meet - Professional Video Conferencing
+# 🚀 Earth Meet - Professional Video Conferencing
 
-Smart Meet is a modern, high-performance video conferencing application built with the MERN stack and Agora. It features a premium, animated UI with real-time communication capabilities.
+Earth Meet is a modern, high-performance video conferencing application built with the MERN stack and Agora. It features a premium, animated UI with real-time communication capabilities.
 
 ## ✨ Features
 
@@ -31,8 +31,8 @@ Smart Meet is a modern, high-performance video conferencing application built wi
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/mayankyt30-ai/smart-meet.git
-   cd smart-meet
+   git clone https://github.com/mayankyt30-ai/earth-meet.git
+   cd earth-meet
    ```
 
 2. **Setup Server**:
