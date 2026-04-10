@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "earth-meet-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -44,6 +44,10 @@
   },
   "browserslist": {
     "production": [
+      /* ============================================
+   EARTH MEET - Global Design System
+   Premium Dark Theme with Glassmorphism
+   ============================================ */
       ">0.2%",
       "not dead",
       "not op_mini all"
